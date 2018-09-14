@@ -121,6 +121,7 @@ extension RadioPlayer: FRadioPlayerDelegate {
         }
         
         updateTrackMetadata(artistName: artistName, trackName: trackName)
+        //MARK: update track title and artist
     }
     
     func radioPlayer(_ player: FRadioPlayer, artworkDidChange artworkURL: URL?) {
@@ -129,6 +130,7 @@ extension RadioPlayer: FRadioPlayerDelegate {
         ImageLoader.sharedLoader.imageForUrl(urlString: artworkURL.absoluteString) { (image, stringURL) in
             guard let image = image else { self.resetArtwork(with: self.station); return }
             self.updateTrackArtwork(with: image, artworkLoaded: true)
+            //MARK: update track title and artist
         }
     }
 }
